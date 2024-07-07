@@ -14,7 +14,7 @@
         </div>
         <div class="flex gap-2 items-end mb-3">
         <img class="h-20 w-20  rounded-md" src="/images/uploads/<%=user.profilepic%>">
-        <a href="/changeprofile" class="bg-yellow-500 rounded-md text-white text-sm px-2 py-1">Change Profile</a>
+        <a href="/error" class="bg-yellow-500 rounded-md text-white text-sm px-2 py-1">Change Profile</a>
         </div>
         <h3 class="text-3xl">Hello, <%=user.name%>👋</h3>
         <h5 class="mb-5">You can create a new post below!</h5>
@@ -29,7 +29,7 @@
                     <div class="post bg-zinc-800 rounded-md p-10 mb-5 flex flex-col ">
                         <div class="self-center mb-10 rounded-md">
                         <img src="/images/uploads/<%=post.postpic%>" class="mb-5 rounded-md" alt="">
-                        <form autocomplete="off" action="/upload/<%=post._id%>" method="post" enctype="multipart/form-data"
+                        <form autocomplete="off" action="/error" method="post" enctype="multipart/form-data"
                             class="flex flex-col gap-2 items-start">
                             <input type="file" name="image">
                             <input type="submit" name="" value="Change Post Pic" class="px-3 py-2 bg-blue-500 rounded-md"  id="">
