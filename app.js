@@ -159,7 +159,7 @@ app.get("/view/:id",isLoggedIn,async(req,res)=>{
     res.render("userprofile",{user})
 })
 
-app.get("/error",isLoggedIn,(req,res)=>{
+app.post("/error",isLoggedIn,(req,res)=>{
     res.render("error")
 })
 
