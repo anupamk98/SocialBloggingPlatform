@@ -159,6 +159,14 @@ app.get("/view/:id",isLoggedIn,async(req,res)=>{
     res.render("userprofile",{user})
 })
 
+app.get("/error",isLoggedIn,(req,res)=>{
+    res.render("error")
+})
+
+app.get("/takehome",isLoggedIn,(req,res)=>{
+    res.redirect("/logfeed")
+})
+
 function isLoggedIn(req,res,next) {
     if((req.cookies.hasOwnProperty('token') && req.cookies.token === "") || 
     !req.cookies.hasOwnProperty('token')) res.redirect("/login")
