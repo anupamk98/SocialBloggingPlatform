@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="w-screen min-h-screen bg-zinc-900">
+    <nav class="bg-zinc-800 flex justify-between items-center text-white px-7 gap-3 py-5 ">
+     <h1 class="text-3xl ">Blogify✍️</h1>
+     <div class="flex gap-3 text-md ">
+        <a href="/login" class="px-3 py-2 rounded-md bg-blue-500">Log In</a>
+        <a href="/signup" class="px-3 py-2 rounded-md bg-blue-500">Sign Up</a>
+     </div>
+    </nav>
+    <div class="main p-10 text-white">
+        <h1 class="text-2xl mb-10">Global Feed</h1>
+        <div class="feeds px-5">
+            <% if(posts.length>0) {%>
+                <% posts.reverse().forEach((post)=>{%>
+                    <div class="post bg-zinc-800 rounded-md  p-10 mb-5 flex flex-col">
+                        <img src="/images/uploads/<%=post.postpic%>" class="self-center mb-10 rounded-md" alt="">
+                        <a href="/view/<%=post._id%>" class="text-green-500 mb-1 text-lg">@<%=post.name%></a>
+                        <p class="mb-5" ><%=post.content%></p>
+                        <div class="flex mt-2 justify-start sm:justify-end gap-3 text-sm">
+                            <div class="flex flex-col items-center gap-2">
+                                <h5 class=""><%=post.likes.length%> likes</h5>
+                               <a class="text-green-500" href="/">Like</a>
+                               </div>
+                               <div class="flex flex-col items-center gap-2">
+                                   <h5 class=""><%=post.dislikes.length%> dislikes</h5>
+                                   <a class="text-red-500" href="/">Dislike</a>
+                               </div>
+                        </div>
+                    </div>
+                <%}) %>
+            <%} else {%>
+                <h5>Currently the app has no active posts!</h5>
+                <%}%>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

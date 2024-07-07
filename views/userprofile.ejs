@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-full min-h-screen bg-zinc-900 text-white p-10">
+        <div class="inline-block flex justify-end w-full gap-3 items-center mb-5">
+            <a href="/logfeed" class="px-3 py-2 bg-blue-500 rounded-md">Feed</a>
+        </div>
+        <div class="flex gap-2 items-end mb-3">
+        <img class="h-20 w-20  rounded-md" src="/images/uploads/<%=user.profilepic%>">
+        </div>
+        <h3 class="text-3xl">You are in <%=user.name%>'s Profile👋</h3>
+        <div class="posts mt-20 flex flex-col gap-3">
+            <h3 class="text-xl text-zinc-500">His Posts</h3>
+            <% if(user.posts.length>0) {%>
+                <% user.posts.reverse().forEach((post)=>{%>
+                    <div class="post bg-zinc-800 rounded-md p-4 w-3/4">
+                        <h4 class="text-green-500 mb-2 text-lg">@<%=user.name%></h4>
+                        <p class=""><%=post.content%></p>
+                        <div class="flex mt-2 justify-end gap-3 text-sm">
+                            <h5><%=post.likes.length%> likes</h5>
+                            <h5><%=post.dislikes.length%> dislikes</h5>
+                        </div>
+                    </div>
+                <%}) %>
+            <%} else {%>
+                <h5>Currently you have no posts!</h5>
+                <%}%>
+        </div>
+    </div>
+</body>
+</html>
