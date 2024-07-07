@@ -80,7 +80,7 @@ app.post('/post',isLoggedIn,async (req,res)=>{
     })
 
 app.get("/changeprofile",(req,res)=>{
-    res.render("change")
+    res.render("error")
 })
 
 app.post("/upload",isLoggedIn,upload.single('image'),async (req,res)=>{
