@@ -168,8 +168,8 @@ app.get("/takehome",isLoggedIn,(req,res)=>{
 })
 
 function isLoggedIn(req,res,next) {
-    if((req.cookies.hasOwnProperty('token') && req.cookies.token === "") || 
-    !req.cookies.hasOwnProperty('token')) res.redirect("/login")
+    if((req.cookies.token != null && req.cookies.token === "") || 
+    req.cookies.token == null) res.redirect("/login")
     else {
 let data = jwt.verify(req.cookies.token,"shhhhh")
 req.user = data
